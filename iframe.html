@@ -1,0 +1,5 @@
+<script>
+  let worker = new SharedWorker('worker.js');
+  window.onmessage = msg => worker.port.postMessage(msg);
+  worker.port.onmessage = msg => window.parent.postMessage(msg);
+</script>
