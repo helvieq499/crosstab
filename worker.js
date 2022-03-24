@@ -1,9 +1,4 @@
-onconnect = function(e) {
+onconnect = e => {
   let port = e.ports[0];
-
-  port.addEventListener('message', function(e) {
-    port.postMessage(e);
-  });
-
-  port.start();
-}
+  port.onmessage = e => port.postMessage(e.data);
+};
