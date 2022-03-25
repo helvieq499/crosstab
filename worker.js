@@ -14,7 +14,7 @@ onconnect = e => {
         console.log(`broadcast from ${ctx.descriptor[0]} (${ctx.descriptor[1]}): ${e.data[1]}`);
         for (let desc in connections) 
           if (connections[desc] != port)
-            connections[desc].postMessage(["message", "broadcast", desc, e.data[1]]);
+            connections[desc].postMessage(["message", "broadcast", ctx.descriptor, e.data[1]]);
         break;
     }
   }
