@@ -1,6 +1,6 @@
 <script>
   let worker = new SharedWorker('worker.js');
   window.onmessage = msg => worker.port.postMessage(msg.data);
-  worker.port.onmessage = msg => window.parent.postMessage(msg);
+  worker.port.onmessage = msg => window.parent.postMessage(msg.data);
   worker.port.postMessage(["subscribe", window.parent.origin, Math.floor(Math.random() * 4294967295)]);
 </script>
